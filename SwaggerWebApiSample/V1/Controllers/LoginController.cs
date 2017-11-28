@@ -7,7 +7,7 @@ using System.Web;
 using System.Web.Http;
 using System.Web.Security;
 
-namespace Microsoft.Examples.V1.Controllers
+namespace SwaggerWebApiSample.V1.Controllers
 {
     public class LoginController : ApiController
     {

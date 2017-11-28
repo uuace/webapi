@@ -1,4 +1,4 @@
-﻿namespace Microsoft.Examples.V2.Controllers
+﻿namespace SwaggerWebApiSample.V2.Controllers
 {
     using Microsoft.Web.Http;
     using Models;

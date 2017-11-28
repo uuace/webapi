@@ -1,4 +1,4 @@
-﻿namespace Microsoft.Examples.V1.Controllers
+﻿namespace SwaggerWebApiSample.V1.Controllers
 {
     using Microsoft.Web.Http;
     using Models;
@@ -9,7 +9,7 @@
     /// Represents a RESTful service of orders.
     /// </summary>
     /// Deprecated 是否废弃
-    [ApiVersion( "1.0", Deprecated = true)]    
+    [ApiVersion( "1.0")]    
     [RoutePrefix( "api/orders" )]
     public class OrdersController : ApiController
     {

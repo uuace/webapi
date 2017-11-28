@@ -1,8 +1,8 @@
-﻿namespace Microsoft.Examples.V1.Controllers
+﻿namespace SwaggerWebApiSample.V1.Controllers
 {
-    using Microsoft.Examples.Filter;
     using Microsoft.Web.Http;
     using Models;
+    using SwaggerWebApiSample.Filter;
     using System.Diagnostics;
     using System.Web.Http;
     using System.Web.Http.Description;
@@ -10,7 +10,7 @@
     /// <summary>
     /// Represents a RESTful people service.
     /// </summary>
-    [ApiVersion( "1.0", Deprecated = true )]
+    [ApiVersion( "1.0")]
     //[ApiVersion( "0.9", Deprecated = true )]
     [RoutePrefix( "api/v{api-version:apiVersion}/people" )]
     public class PeopleController : ApiController
@@ -25,7 +25,8 @@
         [HttpGet]
         [Route("{id:int}")]
         [ResponseType(typeof(Person))]
-        [RequestAuthorize]
+        //[Authorize]
+        [HttpBasicAuthorize]
         public IHttpActionResult Get(int id)
         {
             Debug.WriteLine("11");

@@ -1,4 +1,4 @@
-﻿namespace Microsoft.Examples
+﻿namespace SwaggerWebApiSample
 {
     using Swashbuckle.Swagger;
     using System.Linq;

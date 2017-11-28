@@ -4,7 +4,7 @@ using System.Diagnostics;
 using System.Linq;
 using System.Web;
 using System.Web.Http;
-namespace Microsoft.Examples.Filter
+namespace SwaggerWebApiSample.Filter
 {
     /// <summary>
     /// token验证

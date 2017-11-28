@@ -5,12 +5,12 @@ using System.Web;
 using System.Web.Http;
 using System.Web.Security;
 
-namespace Microsoft.Examples.Filter
+namespace SwaggerWebApiSample.Filter
 {
     /// <summary>
-    /// 自定义此特性用于接口的身份验证
+    /// Basic 方式验证
     /// </summary>
-    public class RequestAuthorizeAttribute : AuthorizeAttribute
+    public class BasicAuthenticationAttribute : AuthorizeAttribute
     {
         //重写基类的验证方式，加入我们自定义的Ticket验证
         public override void OnAuthorization(System.Web.Http.Controllers.HttpActionContext actionContext)
@@ -33,10 +33,7 @@ namespace Microsoft.Examples.Filter
             //如果取不到身份验证信息，并且不允许匿名访问，则返回未验证401
             else
             {
-                var attributes = actionContext.ActionDescriptor.GetCustomAttributes<AllowAnonymousAttribute>().OfType<AllowAnonymousAttribute>();
-                bool isAnonymous = attributes.Any(a => a is AllowAnonymousAttribute);
-                if (isAnonymous) base.OnAuthorization(actionContext);
-                else HandleUnauthorizedRequest(actionContext);
+                HandleUnauthorizedRequest(actionContext);
             }
         }
 
@@ -44,6 +41,7 @@ namespace Microsoft.Examples.Filter
         private bool ValidateTicket(string encryptTicket)
         {
             //解密Ticket
+            var ticket= FormsAuthentication.Decrypt(encryptTicket);
             var strTicket = FormsAuthentication.Decrypt(encryptTicket).UserData;
             var timeTicket = FormsAuthentication.Decrypt(encryptTicket).Expired;
             //是否过期
@@ -64,6 +62,19 @@ namespace Microsoft.Examples.Filter
             {
                 return false;
             }
+        }
+        protected override void HandleUnauthorizedRequest(System.Web.Http.Controllers.HttpActionContext actionContext)
+        {
+            var challengeMessage = new System.Net.Http.HttpResponseMessage(System.Net.HttpStatusCode.Unauthorized);
+            challengeMessage.Headers.Add("WWW-Authenticate", "Basic");
+            //FormsAuthenticationTicket ticket = new FormsAuthenticationTicket(0, strUser, DateTime.Now,
+            //               DateTime.Now.AddHours(1), true, string.Format("{0}&{1}", strUser, strPwd),
+            //               FormsAuthentication.FormsCookiePath);
+            ////返回登录结果、用户信息、用户验证票据信息
+            //var oUser = new { bRes = true, UserName = strUser, Password = strPwd, Ticket = FormsAuthentication.Encrypt(ticket) };
+            //challengeMessage.Headers.Add("Authorization", "Basic");
+            var re= new System.Web.Http.HttpResponseException(challengeMessage);
+            throw re;
         }
     }
 }

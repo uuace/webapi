@@ -1,4 +1,4 @@
-﻿namespace Microsoft.Examples.V3.Models
+﻿namespace SwaggerWebApiSample.V3.Models
 {
     using System;
     using System.ComponentModel.DataAnnotations;

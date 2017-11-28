@@ -1,0 +1,3 @@
+﻿nuget包引入错误 使用以下命令
+Update-Package Microsoft.AspNet.WebApi -reinstall
+Update-Package Microsoft.AspNet.WebApi.Owin -reinstall

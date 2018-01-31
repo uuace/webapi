@@ -37,7 +37,7 @@ namespace SwaggerWebApiSample
 
             // add the versioned IApiExplorer and capture the strongly-typed implementation (e.g. VersionedApiExplorer vs IApiExplorer)
             // note: the specified format code will format the version as "'v'major[.minor][-status]"
-            var apiExplorer = configuration.AddVersionedApiExplorer(o => o.GroupNameFormat = "'v'VVV");
+            var apiExplorer = configuration.AddVersionedApiExplorer(o => o.GroupNameFormat = "'V'VVV");
             var thisAssembly = typeof(Startup).Assembly;
             configuration.EnableSwagger(
                             "{apiVersion}/swagger",

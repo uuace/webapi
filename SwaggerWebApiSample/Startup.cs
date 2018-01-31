@@ -70,7 +70,7 @@ namespace SwaggerWebApiSample
                                 //swagger.BasicAuth("basic")
                                 //.Description("Basic HTTP Authentication");
 
-                                swagger.IncludeXmlComments(XmlCommentsFilePath);
+                                swagger.IncludeAllXmlComments(typeof(Startup).GetTypeInfo().Assembly, System.AppDomain.CurrentDomain.RelativeSearchPath);
                             })
                          .EnableSwaggerUi(swagger =>
                          {
@@ -81,16 +81,6 @@ namespace SwaggerWebApiSample
                          });
 
             builder.UseWebApi(httpServer);
-        }
-
-        static string XmlCommentsFilePath
-        {
-            get
-            {
-                var basePath = System.AppDomain.CurrentDomain.RelativeSearchPath;
-                var fileName = typeof(Startup).GetTypeInfo().Assembly.GetName().Name + ".xml";
-                return Path.Combine(basePath, fileName);
-            }
         }
     }
 }

@@ -1,0 +1,374 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>SwaggerWebApiSample</name>
+    </assembly>
+    <members>
+        <member name="T:SwaggerWebApiSample.Filter.AuthFilterOutside">
+            <summary>
+            token验证
+            </summary>
+        </member>
+        <member name="M:SwaggerWebApiSample.Filter.AuthFilterOutside.OnAuthorization(System.Web.Http.Controllers.HttpActionContext)">
+            <summary>
+            重写基类的验证方式，加入我们自定义的Ticket验证
+            </summary>
+            <param name="actionContext"></param>
+        </member>
+        <member name="T:SwaggerWebApiSample.Filter.HttpBasicAuthorizeAttribute">
+            <summary>
+            HttpBasic验证连接器
+            </summary>
+        </member>
+        <member name="T:SwaggerWebApiSample.Filter.BasicAuthenticationAttribute">
+            <summary>
+            Basic 方式验证
+            </summary>
+        </member>
+        <member name="T:SwaggerWebApiSample.SwaggerDefaultValues">
+            <summary>
+            Represents the Swagger/Swashbuckle operation filter used to provide default values.
+            </summary>
+            <remarks>This <see cref="T:Swagger.Net.IOperationFilter"/> is only required due to bugs in the <see cref="T:Swagger.Net.SwaggerGenerator"/>.
+            Once they are fixed and published, this class can be removed.</remarks>
+        </member>
+        <member name="M:SwaggerWebApiSample.SwaggerDefaultValues.Apply(Swagger.Net.Operation,Swagger.Net.SchemaRegistry,System.Web.Http.Description.ApiDescription)">
+            <summary>
+            Applies the filter to the specified operation using the given context.
+            </summary>
+            <param name="operation">The operation to apply the filter to.</param>
+            <param name="schemaRegistry">The API schema registry.</param>
+            <param name="apiDescription">The API description being filtered.</param>
+        </member>
+        <member name="T:SwaggerWebApiSample.Startup">
+            <summary>
+            Represents the startup process for the application.
+            </summary>
+        </member>
+        <member name="M:SwaggerWebApiSample.Startup.Configuration(Owin.IAppBuilder)">
+            <summary>
+            Configures the application using the provided builder.
+            </summary>
+            <param name="builder">The current application builder.</param>
+        </member>
+        <member name="T:SwaggerWebApiSample.V1.Controllers.OrdersController">
+            <summary>
+            Represents a RESTful service of orders.
+            </summary>
+            Deprecated 是否废弃
+        </member>
+        <member name="M:SwaggerWebApiSample.V1.Controllers.OrdersController.Get(System.Int32)">
+            <summary>
+            Gets a single order.
+            </summary>
+            <param name="id">The requested order identifier.</param>
+            <returns>The requested order.</returns>
+            <response code="200">The order was successfully retrieved.</response>
+            <response code="404">The order does not exist.</response>
+        </member>
+        <member name="M:SwaggerWebApiSample.V1.Controllers.OrdersController.Post(SwaggerWebApiSample.V1.Models.Order)">
+            <summary>
+            Places a new order.
+            </summary>
+            <param name="order">The order to place.</param>
+            <returns>The created order.</returns>
+            <response code="201">The order was successfully placed.</response>
+            <response code="400">The order is invalid.</response>
+        </member>
+        <member name="T:SwaggerWebApiSample.V1.Controllers.PeopleController">
+            <summary>
+            Represents a RESTful people service.
+            </summary>
+        </member>
+        <member name="M:SwaggerWebApiSample.V1.Controllers.PeopleController.Get(System.Int32)">
+            <summary>
+            Gets a single person.
+            </summary>
+            <param name="id">主键.</param>
+            <returns>The requested person.</returns>
+            <response code="200">The person was successfully retrieved.</response>
+            <response code="404">The person does not exist.</response>
+        </member>
+        <member name="T:SwaggerWebApiSample.V1.Models.Order">
+            <summary>
+            Represents an order.
+            </summary>
+        </member>
+        <member name="P:SwaggerWebApiSample.V1.Models.Order.Id">
+            <summary>
+            主键
+            </summary>
+        </member>
+        <member name="P:SwaggerWebApiSample.V1.Models.Order.CreatedDate">
+            <summary>
+            Gets or sets the date and time when the order was created.
+            </summary>
+            <value>The order's creation date.</value>
+        </member>
+        <member name="P:SwaggerWebApiSample.V1.Models.Order.Customer">
+            <summary>
+            Gets or sets the name of the ordering customer.
+            </summary>
+            <value>The name of the customer that placed the order.</value>
+        </member>
+        <member name="T:SwaggerWebApiSample.V1.Models.Person">
+            <summary>
+            Represents a person.
+            </summary>
+        </member>
+        <member name="P:SwaggerWebApiSample.V1.Models.Person.Id">
+            <summary>
+            Gets or sets the unique identifier for a person.
+            </summary>
+            <value>The person's unique identifier.</value>
+        </member>
+        <member name="P:SwaggerWebApiSample.V1.Models.Person.FirstName">
+            <summary>
+            Gets or sets the first name of a person.
+            </summary>
+            <value>The person's first name.</value>
+        </member>
+        <member name="P:SwaggerWebApiSample.V1.Models.Person.LastName">
+            <summary>
+            Gets or sets the last name of a person.
+            </summary>
+            <value>The person's last name.</value>
+        </member>
+        <member name="M:SwaggerWebApiSample.V2.Controllers.OrdersController.Get">
+            <summary>
+            Retrieves all orders.
+            </summary>
+            <returns>All available orders.</returns>
+            <response code="200">The successfully retrieved orders.</response>
+        </member>
+        <member name="M:SwaggerWebApiSample.V2.Controllers.OrdersController.Get(System.Int32)">
+            <summary>
+            Gets a single order.
+            </summary>
+            <param name="id">The requested order identifier.</param>
+            <returns>The requested order.</returns>
+            <response code="200">The order was successfully retrieved.</response>
+            <response code="404">The order does not exist.</response>
+        </member>
+        <member name="M:SwaggerWebApiSample.V2.Controllers.OrdersController.Post(SwaggerWebApiSample.V2.Models.Order)">
+            <summary>
+            Places a new order.
+            </summary>
+            <param name="order">The order to place.</param>
+            <returns>The created order.</returns>
+            <response code="201">The order was successfully placed.</response>
+            <response code="400">The order is invalid.</response>
+        </member>
+        <member name="T:SwaggerWebApiSample.V2.Controllers.PeopleController">
+            <summary>
+            Represents a RESTful people service.
+            </summary>
+        </member>
+        <member name="M:SwaggerWebApiSample.V2.Controllers.PeopleController.Get">
+            <summary>
+            Gets all people.
+            </summary>
+            <returns>All available people.</returns>
+            <response code="200">The successfully retrieved people.</response>
+        </member>
+        <member name="M:SwaggerWebApiSample.V2.Controllers.PeopleController.Get(System.Int32)">
+            <summary>
+            Gets a single person.
+            </summary>
+            <param name="id">The requested person identifier.</param>
+            <returns>The requested person.</returns>
+            <response code="200">The person was successfully retrieved.</response>
+            <response code="404">The person does not exist.</response>
+        </member>
+        <member name="T:SwaggerWebApiSample.V2.Models.Order">
+            <summary>
+            Represents an order.
+            </summary>
+        </member>
+        <member name="P:SwaggerWebApiSample.V2.Models.Order.Id">
+            <summary>
+            Gets or sets the unique identifier for the order.
+            </summary>
+            <value>The order's unique identifier.</value>
+        </member>
+        <member name="P:SwaggerWebApiSample.V2.Models.Order.CreatedDate">
+            <summary>
+            Gets or sets the date and time when the order was created.
+            </summary>
+            <value>The order's creation date.</value>
+        </member>
+        <member name="P:SwaggerWebApiSample.V2.Models.Order.EffectiveDate">
+            <summary>
+            Gets or sets the date and time when the order becomes effective.
+            </summary>
+            <value>The order's effective date.</value>
+        </member>
+        <member name="P:SwaggerWebApiSample.V2.Models.Order.Customer">
+            <summary>
+            Gets or sets the name of the ordering customer.
+            </summary>
+            <value>The name of the customer that placed the order.</value>
+        </member>
+        <member name="T:SwaggerWebApiSample.V2.Models.Person">
+            <summary>
+            Represents a person.
+            </summary>
+        </member>
+        <member name="P:SwaggerWebApiSample.V2.Models.Person.Id">
+            <summary>
+            Gets or sets the unique identifier for a person.
+            </summary>
+            <value>The person's unique identifier.</value>
+        </member>
+        <member name="P:SwaggerWebApiSample.V2.Models.Person.FirstName">
+            <summary>
+            Gets or sets the first name of a person.
+            </summary>
+            <value>The person's first name.</value>
+        </member>
+        <member name="P:SwaggerWebApiSample.V2.Models.Person.LastName">
+            <summary>
+            Gets or sets the last name of a person.
+            </summary>
+            <value>The person's last name.</value>
+        </member>
+        <member name="P:SwaggerWebApiSample.V2.Models.Person.Email">
+            <summary>
+            Gets or sets the email address for a person.
+            </summary>
+            <value>The person's email address.</value>
+        </member>
+        <member name="T:SwaggerWebApiSample.V3.Controllers.OrdersController">
+            <summary>
+            Represents a RESTful service of orders.
+            </summary>
+        </member>
+        <member name="M:SwaggerWebApiSample.V3.Controllers.OrdersController.Get">
+            <summary>
+            Retrieves all orders.
+            </summary>
+            <returns>All available orders.</returns>
+            <response code="200">Orders successfully retrieved.</response>
+            <response code="400">The order is invalid.</response>
+        </member>
+        <member name="M:SwaggerWebApiSample.V3.Controllers.OrdersController.Get(System.Int32)">
+            <summary>
+            Gets a single order.
+            </summary>
+            <param name="id">The requested order identifier.</param>
+            <returns>The requested order.</returns>
+            <response code="200">The order was successfully retrieved.</response>
+            <response code="404">The order does not exist.</response>
+        </member>
+        <member name="M:SwaggerWebApiSample.V3.Controllers.OrdersController.Post(SwaggerWebApiSample.V3.Models.Order)">
+            <summary>
+            Places a new order.
+            </summary>
+            <param name="order">The order to place.</param>
+            <returns>The created order.</returns>
+            <response code="201">The order was successfully placed.</response>
+            <response code="400">The order is invalid.</response>
+        </member>
+        <member name="M:SwaggerWebApiSample.V3.Controllers.OrdersController.Delete(System.Int32)">
+            <summary>
+            Cancels an order.
+            </summary>
+            <param name="id">The order to cancel.</param>
+            <returns>None</returns>
+        </member>
+        <member name="T:SwaggerWebApiSample.V3.Controllers.PeopleController">
+            <summary>
+            Represents a RESTful people service.
+            </summary>
+        </member>
+        <member name="M:SwaggerWebApiSample.V3.Controllers.PeopleController.Get">
+            <summary>
+            Gets all people.
+            </summary>
+            <returns>All available people.</returns>
+            <response code="200">The successfully retrieved people.</response>
+        </member>
+        <member name="M:SwaggerWebApiSample.V3.Controllers.PeopleController.Get(System.Int32)">
+            <summary>
+            Gets a single person.
+            </summary>
+            <param name="id">The requested person identifier.</param>
+            <returns>The requested person.</returns>
+            <response code="200">The person was successfully retrieved.</response>
+            <response code="404">The person does not exist.</response>
+        </member>
+        <member name="M:SwaggerWebApiSample.V3.Controllers.PeopleController.Post(SwaggerWebApiSample.V3.Models.Person)">
+            <summary>
+            Creates a new person.
+            </summary>
+            <param name="person">The person to create.</param>
+            <returns>The created person.</returns>
+            <response code="201">The person was successfully created.</response>
+            <response code="400">The person was invalid.</response>
+        </member>
+        <member name="T:SwaggerWebApiSample.V3.Models.Order">
+            <summary>
+            Represents an order.
+            </summary>
+        </member>
+        <member name="P:SwaggerWebApiSample.V3.Models.Order.Id">
+            <summary>
+            Gets or sets the unique identifier for the order.
+            </summary>
+            <value>The order's unique identifier.</value>
+        </member>
+        <member name="P:SwaggerWebApiSample.V3.Models.Order.CreatedDate">
+            <summary>
+            Gets or sets the date and time when the order was created.
+            </summary>
+            <value>The order's creation date.</value>
+        </member>
+        <member name="P:SwaggerWebApiSample.V3.Models.Order.EffectiveDate">
+            <summary>
+            Gets or sets the date and time when the order becomes effective.
+            </summary>
+            <value>The order's effective date.</value>
+        </member>
+        <member name="P:SwaggerWebApiSample.V3.Models.Order.Customer">
+            <summary>
+            Gets or sets the name of the ordering customer.
+            </summary>
+            <value>The name of the customer that placed the order.</value>
+        </member>
+        <member name="T:SwaggerWebApiSample.V3.Models.Person">
+            <summary>
+            Represents a person.
+            </summary>
+        </member>
+        <member name="P:SwaggerWebApiSample.V3.Models.Person.Id">
+            <summary>
+            Gets or sets the unique identifier for a person.
+            </summary>
+            <value>The person's unique identifier.</value>
+        </member>
+        <member name="P:SwaggerWebApiSample.V3.Models.Person.FirstName">
+            <summary>
+            Gets or sets the first name of a person.
+            </summary>
+            <value>The person's first name.</value>
+        </member>
+        <member name="P:SwaggerWebApiSample.V3.Models.Person.LastName">
+            <summary>
+            Gets or sets the last name of a person.
+            </summary>
+            <value>The person's last name.</value>
+        </member>
+        <member name="P:SwaggerWebApiSample.V3.Models.Person.Email">
+            <summary>
+            Gets or sets the email address for a person.
+            </summary>
+            <value>The person's email address.</value>
+        </member>
+        <member name="P:SwaggerWebApiSample.V3.Models.Person.Phone">
+            <summary>
+            Gets or sets the telephone number for a person.
+            </summary>
+            <value>The person's telephone number.</value>
+        </member>
+    </members>
+</doc>

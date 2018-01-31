@@ -1,4 +1,6 @@
-﻿namespace SwaggerWebApiSample.V2.Models
+﻿using System.ComponentModel;
+
+namespace SwaggerWebApiSample.V2.Models
 {
     using System;
     using System.ComponentModel.DataAnnotations;
@@ -12,6 +14,7 @@
         /// Gets or sets the unique identifier for a person.
         /// </summary>
         /// <value>The person's unique identifier.</value>
+        [DisplayName("主键")]
         public int Id { get; set; }
 
         /// <summary>

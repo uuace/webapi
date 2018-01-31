@@ -9,8 +9,8 @@
     /// Represents a RESTful service of orders.
     /// </summary>
     /// Deprecated 是否废弃
-    [ApiVersion( "1.0")]    
-    [RoutePrefix( "api/orders" )]
+    [ApiVersion( "1.0")]
+    [RoutePrefix("api/orders")]
     public class OrdersController : ApiController
     {
         /// <summary>
@@ -20,9 +20,9 @@
         /// <returns>The requested order.</returns>
         /// <response code="200">The order was successfully retrieved.</response>
         /// <response code="404">The order does not exist.</response>
-        [HttpGet]
-        [Route( "{id:int}", Name = "GetOrderById" )]
-        [ResponseType( typeof( Order ) )]
+        //[HttpGet]
+        [Route("{id:int}", Name = "GetOrderById")]
+        //[ResponseType( typeof( Order ) )]
         public IHttpActionResult Get( int id ) => Ok( new Order() { Id = id, Customer = "John Doe" } );
 
         /// <summary>

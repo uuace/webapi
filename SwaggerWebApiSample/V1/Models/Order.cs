@@ -1,4 +1,6 @@
-﻿namespace SwaggerWebApiSample.V1.Models
+﻿using System.ComponentModel;
+
+namespace SwaggerWebApiSample.V1.Models
 {
     using System;
     using System.ComponentModel.DataAnnotations;
@@ -9,9 +11,8 @@
     public class Order
     {
         /// <summary>
-        /// Gets or sets the unique identifier for the order.
+        /// 主键
         /// </summary>
-        /// <value>The order's unique identifier.</value>
         public int Id { get; set; }
 
         /// <summary>

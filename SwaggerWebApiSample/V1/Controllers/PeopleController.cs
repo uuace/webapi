@@ -18,7 +18,7 @@
         /// <summary>
         /// Gets a single person.
         /// </summary>
-        /// <param name="id">The requested person identifier.</param>
+        /// <param name="id">主键.</param>
         /// <returns>The requested person.</returns>
         /// <response code="200">The person was successfully retrieved.</response>
         /// <response code="404">The person does not exist.</response>

@@ -1,10 +1,13 @@
-﻿[assembly: Microsoft.Owin.OwinStartup(typeof(SwaggerWebApiSample.Startup))]
+﻿
+
+[assembly: Microsoft.Owin.OwinStartup(typeof(SwaggerWebApiSample.Startup))]
 
 namespace SwaggerWebApiSample
 {
     using global::Owin;
     using Microsoft.Web.Http.Routing;
-    using Swashbuckle.Application;
+    //using Swashbuckle.Application;
+    using Swagger.Net.Application;
     using System.IO;
     using System.Reflection;
     using System.Web.Http;
@@ -64,8 +67,8 @@ namespace SwaggerWebApiSample
 
                                 // add a custom operation filter which sets default values
                                 swagger.OperationFilter<SwaggerDefaultValues>();
-                                swagger.BasicAuth("basic")
-                                .Description("Basic HTTP Authentication");
+                                //swagger.BasicAuth("basic")
+                                //.Description("Basic HTTP Authentication");
 
                                 swagger.IncludeXmlComments(XmlCommentsFilePath);
                             })

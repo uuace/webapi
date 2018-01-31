@@ -1,6 +1,8 @@
-﻿namespace SwaggerWebApiSample
+﻿using Swagger.Net;
+
+namespace SwaggerWebApiSample
 {
-    using Swashbuckle.Swagger;
+    //using Swashbuckle.Swagger;
     using System.Linq;
     using System.Web.Http.Description;
 

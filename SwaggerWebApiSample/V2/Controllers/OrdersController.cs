@@ -2,11 +2,12 @@
 {
     using Microsoft.Web.Http;
     using Models;
+    using SwaggerWebApiSample.Filter;
     using System;
     using System.Collections.Generic;
     using System.Web.Http;
     using System.Web.Http.Description;
-
+    [HttpBasicAuthorizeAttribute]
     /// <summary>
     /// Represents a RESTful service of orders.
     /// </summary>
